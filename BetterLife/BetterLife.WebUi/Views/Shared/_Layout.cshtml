@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Better Life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/Content/reset.css">
+    <link rel="stylesheet" type="text/css" href="/Content/main.css">
+    <script type="text/javascript" src="/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="/Scripts/main.js"></script>
+    <script src="/Scripts/jquery-2.1.3.min.js"></script>
+    <script src="/Scripts/jquery.validate.min.js"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href=@Url.Action("Index","Social")><strong>Better Life</strong></a>
+        </div>
+            <div id="menu_icon"></div>
+            <nav>
+                <ul>
+                    <li><a href=@Url.Action("Index","Social") class="selected">Home</a></li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        
+                        <li>@Html.ActionLink(User.Identity.Name, "Person", "Person",routeValues:null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+                         <li><a href="#">Wiadomości</a></li>
+                    <li>
+                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                        }
+                    </li>                    
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    }
+                   
+                </ul>
+            </nav><!-- end navigation menu -->
+ 
+        <div class="footer clearfix">
+            <ul class="social clearfix">
+                <li><a href="https://www.facebook.com/" class="fb" data-title="Facebook"></a></li>
+                <li><a href="https://www.google.pl/" class="google" data-title="Google +"></a></li>
+                <li><a href="#" class="behance" data-title="Behance"></a></li>
+                <li><a href="#" class="rss" data-title="RSS"></a></li>
+            </ul><!-- end social -->
+
+            <div class="rights">
+                <p>WebSite by B.C Gangrena</p>
+            </div><!-- end rights -->
+        </div><!-- end footer -->
+    </header>
+  
+        <section class="main clearfix">
+            @RenderBody()
+        </section>
+
+</body>
+</html>
+
+

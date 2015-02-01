@@ -1,0 +1,48 @@
+﻿@model BetterLife.WebUi.Models.RegisterModel
+
+<link rel="stylesheet" type="text/css" href="/Content/reset.css">
+<link rel="stylesheet" type="text/css" href="/Content/main.css">
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
+<script type="text/javascript" src="/Scripts/main.js"></script>
+<link rel="stylesheet" href="/Content/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
+<script type="text/javascript" src="/Scripts/main.js"></script>
+<script src="/Scripts/jquery.validate.min.js"></script>
+<script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<section class="top">
+    <div class="wrapper content_header clearfix">
+        <div class="work_nav">
+        </div><!-- end work_nav -->
+
+        <p class="text-center">
+            <h1 class="title">
+                Relestracja
+            </h1>
+        </p>
+
+    </div>
+</section><!-- end top -->
+
+<section class="wrapper">
+    <div class="content">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <div class="text-center">
+
+                <h3>@Html.LabelFor(m => m.UserName)</h3>
+                <h3>@Html.TextBoxFor(m => m.UserName)</h3>
+
+                <h3>@Html.LabelFor(m => m.Password)</h3>
+                <h3>@Html.PasswordFor(m => m.Password)</h3>
+
+                <h3>@Html.LabelFor(m => m.ConfirmPassword)</h3>
+                <h3>@Html.PasswordFor(m => m.ConfirmPassword)</h3>
+
+                <input type="submit" value="Register" />
+            </div>
+        }
+    </div>
+</section>

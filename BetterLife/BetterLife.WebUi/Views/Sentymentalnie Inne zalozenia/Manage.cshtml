@@ -1,0 +1,109 @@
+﻿@using System.Activities.Statements
+@using System.Net.Mime
+@using Antlr.Runtime
+@model BetterLife.Domain.Entities.PersonProfile
+
+<link rel="stylesheet" type="text/css" href="/Content/reset.css">
+<link rel="stylesheet" type="text/css" href="/Content/main.css">
+<script src="/Scripts/jquery.js"></script>
+<script src="/Scripts/main.js"></script>
+<link rel="stylesheet" href="/Content/bootstrap.min.css" type="text/css" />
+<script src="/Scripts/bootstrap.js"></script>
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
+<script type="text/javascript" src="/Scripts/main.js"></script>
+<script src="/Scripts/jquery.validate.min.js"></script>
+
+
+<script type="text/javascript">
+    $('.dropdown-toggle').dropdown()
+</script>
+
+<section class="top">
+    <div class="wrapper content_header clearfix">
+
+    </div>
+</section><!-- end top -->
+
+<section class="wrapper">
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active">@Html.ActionLink("Information", "Manage", "PersonProfile", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Photo <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Photo", "AddPhoto", "PersonProfile", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Photo List/Edit", "ListPhoto", "PersonProfile", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Location <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Location", "Photo", "Photo", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Location List/Edit", "ListLocation", "PersonProfile", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
+        <li role="presentation"><a href="#">Favorite Movies</a></li>
+        <li role="presentation"><a href="#">Favorite Books</a></li>
+    </ul>
+
+    <div class="content ">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            @Html.HiddenFor(x => x.PersonProfileId);
+            @Html.HiddenFor(x => x.Login)
+            @Html.HiddenFor(x => x.Password)
+            <form class="form-inline" >
+                <div class="form-group ">
+                    @Html.LabelFor(m => m.FirstName, htmlAttributes: new { @for = "imput1" })
+                    @Html.TextBoxFor(m => m.FirstName, htmlAttributes: new { @class = "form-control", placeholder = "Luke", id = "imput1", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName, htmlAttributes: new { @for = "imput2" })
+                    @Html.TextBoxFor(m => m.LastName, htmlAttributes: new { @class = "form-control", placeholder = "sasa", id = "imput2", type = "text"})
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Birthday, htmlAttributes: new { @for = "imput3" })
+                    @Html.TextBoxFor(m => m.Birthday, htmlAttributes: new { @class = "form-control", placeholder = "lasa", id = "imput3", type = "text" })
+                </div>
+                <div class="form-group ">
+                    @Html.LabelFor(m => m.Gender, htmlAttributes: new { @for = "imput4" })
+                    @Html.DropDownListFor(m => m.Gender, new[]
+                    {
+                        new SelectListItem(){Text="Men",Value ="Male"},
+                        new SelectListItem(){Text = "Women",Value="Famale"},
+                        new SelectListItem(){Text = "Unspecified",Value = "Unspecified"}
+                    }, "Choose option", htmlAttributes: new { @class = "form-control", id = "imput4", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LookingFor, htmlAttributes: new { @for = "imput5" })
+                    @Html.DropDownListFor(m => m.LookingFor, new[]
+                          { new SelectListItem() { Text = "Dating", Value = "Dating" },
+                              new SelectListItem() { Text = "Friend Ship", Value = "FriendShip" },
+                              new SelectListItem(){Text = "Random Play",Value = "RandomPlay"},
+                              new SelectListItem(){Text="Unspecified",Value="Unspecified"},
+                              new SelectListItem(){Text="What Ever I Can Get",Value = "WhatEverICanGet"}
+                          }, "Choose option", htmlAttributes: new { @class = "form-control", id = "imput5" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.RelationshipStatus, htmlAttributes: new { @for = "imput6" })
+                    @Html.DropDownListFor(m => m.RelationshipStatus, new[]
+                          {
+                              new SelectListItem(){Text = "Engaged",Value = "Engaged"},
+                              new SelectListItem(){Text="In Open Relationship",Value="InAnOpenRelationship"},
+                              new SelectListItem(){Text="In A Relationship",Value = "InARelationship"},
+                              new SelectListItem(){Text = "Is Single",Value="IsSingle"},
+                              new SelectListItem(){Text="Its Complicated",Value = "IsComplicated"},
+                              new SelectListItem(){Text="Married",Value = "Married"},
+                              new SelectListItem(){Text="Unspecified",Value="Unspecified"}
+
+                          }, "Choose option", htmlAttributes: new { @class = "form-control", id = "imput6" })
+                </div>
+                <button type="submit" class="btn btn-default center-block  ">Update</button>
+            </form>
+       }
+    </div>
+</section>

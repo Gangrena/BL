@@ -1,0 +1,86 @@
+﻿@using WebGrease.Css.Extensions
+@model IEnumerable<BetterLife.Domain.Entities.Location>
+
+
+<link rel="stylesheet" type="text/css" href="/Content/reset.css">
+<link rel="stylesheet" type="text/css" href="/Content/main.css">
+<script src="/Scripts/jquery.js"></script>
+<script src="/Scripts/main.js"></script>
+<link rel="stylesheet" href="/Content/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
+<script type="text/javascript" src="/Scripts/main.js"></script>
+<script src="/Scripts/jquery.validate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="/Scripts/angular.js"></script>
+<script src="/Scripts/bootstrap.js"></script>
+
+<script type="text/javascript">
+    $('.dropdown-toggle').dropdown()
+</script>
+
+<section class="top">
+    <div class="wrapper content_header clearfix">
+
+    </div>
+</section><!-- end top -->
+
+<section class="wrapper">
+    <ul class="nav nav-pills">
+        <li role="presentation">@Html.ActionLink("Information", "Manage", "PersonProfile", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Photo <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Photo", "AddPhoto", "PersonProfile", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Photo List/Edit", "ListPhoto", "PersonProfile", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
+        <li role="presentation" class="dropdown active">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Location <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Location", "AddLocation", "PersonProfile", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Location List/Edit", "ListLocation", "PersonProfile", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
+        <li role="presentation"><a href="#">Favorite Movies</a></li>
+        <li role="presentation"><a href="#">Favorite Books</a></li>
+    </ul>
+    <div class="content">
+
+        @using (Html.BeginForm("Location", "PersonProfile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <div class="text-center">
+                @foreach (var location in Model)
+                {
+                    @Html.HiddenFor(x => @location.PersonProfile.PersonProfileId)
+                    @Html.HiddenFor(x => @location.LocationId)
+
+                    <h4>@Html.LabelFor(x => @location.City)</h4>
+                    <h4>@Html.TextBoxFor(x => @location.City)</h4>
+
+                    <h4>@Html.LabelFor(x => @location.Country)</h4>
+                    <h4>@Html.TextBoxFor(x => @location.Country)</h4>
+
+                    <h4>@Html.LabelFor(x => @location.Street)</h4>
+                    <h4>@Html.TextBoxFor(x => @location.Street)</h4>
+
+                    <h4>@Html.LabelFor(x => @location.HouseNumber)</h4>
+                    <h4>@Html.TextBoxFor(x => @location.HouseNumber)</h4>
+
+                    <h4>@Html.LabelFor(x => @location.ZipCode)</h4>
+                    <h4>@Html.TextBoxFor(x => @location.ZipCode)</h4>
+
+                    <h4>@Html.LabelFor(x => @location.IsHomeTown)</h4>
+                    <h4>@Html.TextBoxFor(x => @location.IsHomeTown)</h4>
+
+                    <h4>@Html.LabelFor(x => @location.IsCurrentLocation)</h4>
+                    <h4>@Html.TextBoxFor(x => @location.IsCurrentLocation)</h4>
+                }
+            </div>
+            <input type="submit" value="Update" />
+        }
+    </div>
+</section>

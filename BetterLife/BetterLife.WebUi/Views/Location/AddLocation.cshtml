@@ -1,0 +1,100 @@
+﻿@using WebGrease.Css.Extensions
+@model BetterLife.Domain.Entities.Location
+
+<link rel="stylesheet" type="text/css" href="/Content/reset.css">
+<link rel="stylesheet" type="text/css" href="/Content/main.css">
+<script src="/Scripts/jquery.js"></script>
+<script src="/Scripts/main.js"></script>
+<link rel="stylesheet" href="/Content/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
+<script type="text/javascript" src="/Scripts/main.js"></script>
+<script src="/Scripts/jquery.validate.min.js"></script>
+<script src="/Scripts/bootstrap.js"></script>
+
+<script type="text/javascript">
+    $('.dropdown-toggle').dropdown()
+</script>
+
+
+<section class="top">
+    <div class="wrapper content_header clearfix">
+
+    </div>
+</section><!-- end top -->
+
+<section class="wrapper">
+    <ul class="nav nav-pills">
+        <li role="presentation">@Html.ActionLink("Information", "Person", "Person", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Photo <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Photo", "AddPhoto", "Photo", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Photo List/Edit", "GetAllPhotos", "Photo", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
+        <li role="presentation" class="dropdown active">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Location <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Location", "AddLocation", "Location", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Location List/Edit", "GetAllLocations", "Location", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Favorite Books <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Book", "AddBook", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Book List/Edit", "GetAllMyBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Book List/All", "GetAllBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
+<li role="presentation"><a href="#">Favorite Movies</a></li>
+        <li role="presentation"><a href="#">Favorite Books</a></li>
+    </ul>
+    <div class="content">
+        <h1 class="text-center">@ViewBag.Message</h1>
+        @using (Html.BeginForm("AddLocation", "Location", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <form class="form-inline">
+
+                <div class="form-group ">
+                    @Html.LabelFor(m => m.City, htmlAttributes: new { @for = "imput1" })
+                    @Html.TextBoxFor(m => m.City, htmlAttributes: new { @class = "form-control", placeholder = "Luke", id = "imput1", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Country, htmlAttributes: new { @for = "imput2" })
+                    @Html.TextBoxFor(m => m.Country, htmlAttributes: new { @class = "form-control", placeholder = "Luke", id = "imput2", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Street, htmlAttributes: new { @for = "imput3" })
+                    @Html.TextBoxFor(m => m.Street, htmlAttributes: new { @class = "form-control", placeholder = "Luke", id = "imput3", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.HouseNumber, htmlAttributes: new { @for = "imput4" })
+                    @Html.TextBoxFor(m => m.HouseNumber, htmlAttributes: new { @class = "form-control", placeholder = "Luke", id = "imput4", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ZipCode, htmlAttributes: new { @for = "imput5" })
+                    @Html.TextBoxFor(m => m.ZipCode, htmlAttributes: new { @class = "form-control", placeholder = "Luke", id = "imput5", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IsHomeTown, htmlAttributes: new { @for = "imput6" })
+                    @Html.CheckBoxFor(m => m.IsHomeTown, htmlAttributes: new { @class = "form-control",id="imput6" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IsCurrentLocation, htmlAttributes: new { @for = "imput7" })
+                    @Html.CheckBoxFor(m => m.IsCurrentLocation, htmlAttributes: new { @class = "form-control", id = "imput7" })
+                </div>
+                <button type="submit" class="btn btn-default center-block  ">Insert</button>
+            </form>
+        }
+    </div>
+</section>
+
+
+
+

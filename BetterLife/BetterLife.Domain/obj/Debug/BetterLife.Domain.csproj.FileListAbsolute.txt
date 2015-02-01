@@ -1,0 +1,32 @@
+C:\Users\Bartosz\Desktop\BetterLife\BetterLife.Domain\bin\Debug\BetterLife.Domain.dll.config
+C:\Users\Bartosz\Desktop\BetterLife\BetterLife.Domain\bin\Debug\BetterLife.Domain.dll
+C:\Users\Bartosz\Desktop\BetterLife\BetterLife.Domain\bin\Debug\BetterLife.Domain.pdb
+C:\Users\Bartosz\Desktop\BetterLife\BetterLife.Domain\bin\Debug\EntityFramework.dll
+C:\Users\Bartosz\Desktop\BetterLife\BetterLife.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bartosz\Desktop\BetterLife\BetterLife.Domain\bin\Debug\EntityFramework.xml
+C:\Users\Bartosz\Desktop\BetterLife\BetterLife.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bartosz\Desktop\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.dll
+C:\Users\Bartosz\Desktop\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.pdb
+C:\Users\Bartosz\Desktop\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig1.resources
+C:\Users\Bartosz\Desktop\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.csproj.GenerateResource.Cache
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\bin\Debug\BetterLife.Domain.dll.config
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\bin\Debug\BetterLife.Domain.dll
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\bin\Debug\BetterLife.Domain.pdb
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\bin\Debug\EntityFramework.dll
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\bin\Debug\EntityFramework.xml
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig1.resources
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.csproj.GenerateResource.Cache
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.dll
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.pdb
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig2.resources
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig3.resources
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig5.resources
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig51.resources
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig6.resources
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig61.resources
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig7.resources
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig8.resources
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig81.resources
+C:\Users\Bartosz\Desktop\BetterLife After Refactory\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig9.resources

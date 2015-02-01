@@ -1,0 +1,50 @@
+﻿@model BetterLife.WebUi.Models.LoginModel
+
+<link rel="stylesheet" type="text/css" href="/Content/reset.css">
+<link rel="stylesheet" type="text/css" href="/Content/main.css">
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
+<script type="text/javascript" src="/Scripts/main.js"></script>
+<link rel="stylesheet" href="/Content/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
+<script type="text/javascript" src="/Scripts/main.js"></script>
+<script src="/Scripts/jquery.validate.min.js"></script>
+<script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<section class="top">
+    <div class="wrapper content_header clearfix">
+        <div class="work_nav">
+        </div><!-- end work_nav -->
+
+        <p class="text-center">
+            <h1 class="title">
+                Logowanie
+            </h1>
+        </p>
+
+    </div>
+</section><!-- end top -->
+
+<section class="wrapper">
+    <div class="content">
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="text-center">
+                <h3>@Html.LabelFor(m => m.UserName)</h3>
+                <h3>@Html.TextBoxFor(m => m.UserName)</h3>
+                @Html.ValidationMessageFor(m => m.UserName)
+                <h3>@Html.LabelFor(m => m.Password)</h3>
+                <h3>@Html.PasswordFor(m => m.Password)</h3>
+                @Html.ValidationMessageFor(m => m.Password)
+                <h3>
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe)
+            </h3>
+            <p><input type="submit" value="Log in" /></p>
+            <h3>@Html.ActionLink("Register", "Register") if you don't have an account.</h3>
+        </div>
+        }
+    </div>
+</section>
+
