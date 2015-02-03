@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BetterLife.Domain.Entities.Book>
+﻿@model IQueryable<BetterLife.Domain.Entities.GlobalBook>
 @using System.Web.Http.OData.Builder
 @using BetterLife.WebUi.HtmlHelperMethods;
 @using WebGrease.Css.Extensions
@@ -50,17 +50,16 @@
             <ul class="dropdown-menu" role="menu">
                 <li>@Html.ActionLink("Insert New Book", "AddBook", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
                 <li>@Html.ActionLink("Book List/Edit", "GetAllMyBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
-                <li>@Html.ActionLink("Book List/All", "GetAllBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li class="active">@Html.ActionLink("Book List/All", "GetAllBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
             </ul>
         <li role="presentation"><a href="#">Favorite Movies</a></li>
-        <li role="presentation"><a href="#">Favorite Books</a></li>
     </ul>
 </section>
 
 @if (Model.Any())
 {
     foreach (var book in Model)
-    {      
+    {
         <div class="work">
             <img src="@Url.Action("ShowBook", "Book", new {book.DataId})" class="media" alt="" width="466" height="466" />
             <div class="caption">
@@ -68,11 +67,7 @@
                     <h1>@book.Title</h1>
                     <h2>@book.AuthorFirstName</h2>
                     <h2>@book.AuthorLastName</h2>
-                    @if (book.PersonId != ViewBag.Id)
-                    {
-                        <h2>@Html.ActionLink("Flag is Favorite", "AddToFavorite", new {book.BookId})</h2>
-                        <h1>Like</h1>
-                    }
+                    <h2>@Html.ActionLink("Flag is Favorite", "AddToFavorite", new {book.GlobalBookId})</h2>
                     <img src="@Url.Action("ShowBook", "Book", new {book.DataId})" class="media" alt="" width="466" height="466" />
                 </div>
             </div>
@@ -81,5 +76,5 @@
 }
 else
 {
-    <h1 class="text-center">Empty Here</h1>
+    <h1 class="text-center">Empty Here ! @Html.ActionLink("Insert New Book", "AddBook", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</h1>
 }

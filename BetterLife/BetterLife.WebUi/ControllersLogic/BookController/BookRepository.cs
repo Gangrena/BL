@@ -1,46 +1,58 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using BetterLife.Domain.Abstract;
 using BetterLife.Domain.Concrete;
 using BetterLife.Domain.Entities;
 using BetterLife.WebUi.ControllersLogic.PersonController;
-using WebGrease.Css.Extensions;
 
 namespace BetterLife.WebUi.ControllersLogic.BookController
 {
     public class BookRepository:IBookRepository
     {
         private readonly IAggregateRepositories _repo;
-        private readonly IPersonRepository _personRepository = new PersonRepository();
-
         public BookRepository()
         {
             _repo = new AggregateRepositories();
         }
-        public Book Add(Book item, string login)
+        public GlobalBook Add(GlobalBook item, string login)
         {
             if (item == null)
             {
                 throw new ArgumentNullException("item");
             }
-            var profiles = _personRepository.GetAll();
-            PersonProfile dbEntry = profiles.SingleOrDefault(x => x.Login == login);
+            var dbEntry = _repo.PersonProfiles.GetAll().SingleOrDefault(x => x.Login == login);
             if (dbEntry != null)
             {
-                item.PersonId = dbEntry.PersonProfileId;
-                dbEntry.FavoriteBooks.Add(item);
-                _personRepository.Update(dbEntry);
+                GlobalBook antiDoubleGlobalBook = _repo.GlobalBooks.GetAll().SingleOrDefault(x => x.Title == item.Title);
+                if (antiDoubleGlobalBook == null)
+                {
+                    var newDbEntry = new GlobalBookLike(item, dbEntry);
+                    dbEntry.GlobalBookLikes.Add(newDbEntry);
+                    _repo.PersonProfiles.Update(dbEntry);
+                    _repo.Commit();
+                    return new GlobalBook();
+
+                }
+                return null;
             }
             return item;
         }
 
-        public bool Delete(int id)
+        public bool Delete(int globalBookId, string login)
         {
             try
             {
-                _repo.Books.Delete(id);
+                var personProfile = _repo.PersonProfiles.GetAll().SingleOrDefault(x => x.Login == login);
+                if (personProfile == null) return false;
+                var likeForDelete =
+                    _repo.GlobalBookLikes.GetAll()
+                        .SingleOrDefault(
+                            x => x.GlobalBook.GlobalBookId == globalBookId && x.PersonProfile.Login == login);
+                    
+                if (likeForDelete == null) return false;
+                personProfile.GlobalBookLikes.Remove(likeForDelete);
+                _repo.GlobalBookLikes.Delete(likeForDelete);
+                _repo.PersonProfiles.Update(personProfile);
                 _repo.Commit();
                 return true;
             }
@@ -50,35 +62,32 @@ namespace BetterLife.WebUi.ControllersLogic.BookController
                 return false;
             }
         }
-
-        public Book Get(int id)
+        public bool AddToFavorite(int bookId, string login)
         {
-            return _repo.Books.GetById(id);
+
+            var globalBookLikes = _repo.GlobalBookLikes.GetAll()
+                  .SingleOrDefault(
+                      x => x.PersonProfile.Login == login && x.GlobalBook.GlobalBookId == bookId);
+            if (globalBookLikes != null) return false;
+            var personProfile = _repo.PersonProfiles.GetAll().SingleOrDefault(x => x.Login == login);
+            if (personProfile == null) return false;
+            var newDbEntry = _repo.GlobalBooks.GetById(bookId);
+            if (newDbEntry == null) return false;
+            var newGlobalBookLike = new GlobalBookLike(newDbEntry, personProfile);
+            _repo.GlobalBookLikes.Add(newGlobalBookLike);
+            _repo.Commit();
+            return true;
         }
 
-        public IQueryable<Book> GetAll()
+        public GlobalBook Get(int id)
         {
-            return _repo.Books.GetAll();
+            return _repo.GlobalBooks.GetById(id);
         }
 
-        public bool Update(Book item, string login)
+        public IQueryable<GlobalBook> GetAll()
         {
-            if (item == null)
-            {
-                throw new ArgumentNullException("item");
-            }
-            var profiles = _personRepository.GetAll();
-            PersonProfile dbEntry = profiles.SingleOrDefault(x => x.Login == login);
-            if (dbEntry != null)
-            {
-                var dbUpdateBook = _repo.Books.GetById(item.BookId);
-                dbUpdateBook.AuthorFirstName = item.AuthorFirstName;
-                dbUpdateBook.AuthorLastName = item.AuthorLastName;
-                dbUpdateBook.Title = item.Title;
-                _repo.Commit();
-                return true;
-            }
-            return false;
+            return _repo.GlobalBooks.GetAll();
         }
+
     }
 }

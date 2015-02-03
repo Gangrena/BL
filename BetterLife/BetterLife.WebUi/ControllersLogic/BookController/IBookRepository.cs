@@ -5,10 +5,11 @@ namespace BetterLife.WebUi.ControllersLogic.BookController
 {
     public interface IBookRepository
     {
-        Book Add(Book item, string login);
-        bool Delete(int id);
-        Book Get(int id);
-        IQueryable<Book> GetAll();
-        bool Update(Book item, string login); 
+        GlobalBook Add(GlobalBook item, string login);
+        bool Delete(int id, string login);
+        GlobalBook Get(int id);
+        IQueryable<GlobalBook> GetAll();
+        bool AddToFavorite(int bookId, string login);
+
     }
 }

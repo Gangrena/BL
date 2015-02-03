@@ -29,7 +29,7 @@ namespace BetterLife.WebUi.Models
         {
             if (NeedRegister == true)
             {
-                _repo.PersonProfiles.Add(new PersonProfile {Login = userLogin, Password = password});
+                _repo.PersonProfiles.Add(new PersonProfile {Login = userLogin, Password = password,Birthday = DateTime.UtcNow});
                 _repo.Commit();
             }
             var personProfile =

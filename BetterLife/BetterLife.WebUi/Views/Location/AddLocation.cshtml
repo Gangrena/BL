@@ -38,7 +38,7 @@
                 Location <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-                <li>@Html.ActionLink("Insert New Location", "AddLocation", "Location", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li class="active">@Html.ActionLink("Insert New Location", "AddLocation", "Location", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
                 <li>@Html.ActionLink("Location List/Edit", "GetAllLocations", "Location", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
             </ul>
         <li role="presentation" class="dropdown">
@@ -51,7 +51,7 @@
                 <li>@Html.ActionLink("Book List/All", "GetAllBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
             </ul>
 <li role="presentation"><a href="#">Favorite Movies</a></li>
-        <li role="presentation"><a href="#">Favorite Books</a></li>
+
     </ul>
     <div class="content">
         <h1 class="text-center">@ViewBag.Message</h1>

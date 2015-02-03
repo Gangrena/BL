@@ -42,7 +42,7 @@
             </a>
             <ul class="dropdown-menu" role="menu">
                 <li>@Html.ActionLink("Insert New Location", "AddLocation", "Location", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
-                <li>@Html.ActionLink("Location List/Edit", "GetAllLocations", "Location", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li class="active">@Html.ActionLink("Location List/Edit", "GetAllLocations", "Location", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
             </ul>
         <li role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
@@ -54,11 +54,11 @@
                 <li>@Html.ActionLink("Book List/All", "GetAllBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
             </ul>
 <li role="presentation"><a href="#">Favorite Movies</a></li>
-        <li role="presentation"><a href="#">Favorite Books</a></li>
+
     </ul>
 </section>
 
-@if (Model != null)
+@if (Model.Any())
 {
     foreach (var location in Model)
     {
@@ -86,5 +86,5 @@
 }
 else
 {
-    <h1 class="text-center">Empty Here</h1>
+            <h1 class="text-center">Empty Here ! @Html.ActionLink("Insert New Location", "AddLocation", "Location", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</h1>
 }

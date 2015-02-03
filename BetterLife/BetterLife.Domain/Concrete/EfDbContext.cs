@@ -14,5 +14,7 @@ namespace BetterLife.Domain.Concrete
         public DbSet<PersonProfile> PersonProfiles { get; set; }
         public DbSet<PersonProfileMessage> PersonProfileMessages { get; set; }
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<GlobalBookLike> GlobalBookLikes { get; set; }
+        public DbSet<GlobalBook> GlobalBooks { get; set; }
     }
 }

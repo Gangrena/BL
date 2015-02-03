@@ -5,7 +5,7 @@ using BetterLife.Domain.FixedForEntities;
 
 namespace BetterLife.Domain.Entities
 {
-    public sealed class PersonProfile
+    public  class PersonProfile
     {
         public PersonProfile()
         {
@@ -14,6 +14,7 @@ namespace BetterLife.Domain.Entities
             FavoriteMovies = new List<Movie>();
             Photos = new List<Photo>();
             PersonProfileMessages = new List<PersonProfileMessage>();
+            GlobalBookLikes = new HashSet<GlobalBookLike>();
         }
         //no relations
         public int PersonProfileId { get; set; }
@@ -24,6 +25,7 @@ namespace BetterLife.Domain.Entities
         public string Email { get; set; }
         [Required(ErrorMessage = "Birthday is required")]
         public DateTime? Birthday { get; set; }
+   
         //enums
         public Gender Gender { get; set; }
         public LookingFor LookingFor { get; set; }
@@ -35,6 +37,7 @@ namespace BetterLife.Domain.Entities
         public ICollection<Book> FavoriteBooks { get; set; }
         public ICollection<Movie> FavoriteMovies { get; set; }
         public ICollection<Photo> Photos { get; set; }
+        public ICollection<GlobalBookLike> GlobalBookLikes { get; set; } 
         public ICollection<PersonProfileMessage> PersonProfileMessages { get; set; } 
 
     }

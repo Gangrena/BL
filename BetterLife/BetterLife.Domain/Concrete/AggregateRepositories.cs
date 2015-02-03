@@ -43,6 +43,18 @@ namespace BetterLife.Domain.Concrete
         private IRepository<PersonProfile> _personProfiles;
         private IRepository<PersonProfileMessage> _personProfileMessages;
         private IRepository<Photo> _photos;
+        private IRepository<GlobalBookLike> _globalBookLikes;
+        private IRepository<GlobalBook> _globalBooks;
+
+        public IRepository<GlobalBook> GlobalBooks
+        {
+            get { return _globalBooks ?? (_globalBooks = new Repository<GlobalBook>(DbContext)); }
+        }  
+
+        public IRepository<GlobalBookLike> GlobalBookLikes
+        {
+            get { return _globalBookLikes ?? (_globalBookLikes = new Repository<GlobalBookLike>(DbContext)); }
+        }
         public IRepository<Book> Books
         {
             get { return _books ?? (_books = new Repository<Book>(DbContext)); }

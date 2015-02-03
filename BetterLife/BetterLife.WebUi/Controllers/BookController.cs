@@ -1,61 +1,42 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.EnterpriseServices;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BetterLife.Domain.Entities;
 using BetterLife.WebUi.ControllersLogic.BookController;
-using BetterLife.WebUi.Models;
-using DotNetOpenAuth.OpenId.Extensions.AttributeExchange;
-using Microsoft.Ajax.Utilities;
-using WebGrease.Css.Extensions;
 
 namespace BetterLife.WebUi.Controllers
 {
     public class BookController : Controller
     {
         private readonly IBookRepository _repository = new BookRepository();
-        private readonly GetPersonId _getPersonId = new GetPersonId();
-        private IFavoriteRepository _favoriteRepository;
 
         [Authorize]
         public ActionResult GetAllBooks()
         {
-            int personId = _getPersonId.GetId(User.Identity.Name);
-            //IQueryable<Book> allBooks =
-            //    _repository.GetAll().Where(x => x.PersonId != personId);
-            //IEnumerable<Book> affterFilter = allBooks.GroupBy(x => x.Title).Select(z => z.First());     
-            //var allBooks =
-            //    (IQueryable<Book>) _repository.GetAll().DistinctBy(x => x.Title);
-            //jezus ... 
-            IEnumerable<Book> allBooks =
-                _repository.GetAll().DistinctBy(x => x.Created).DistinctBy(y => y.Title);
+            IQueryable<GlobalBook> globalBooks =
+                _repository.GetAll().Where(x => x.GlobalBookLikes.All(z => z.PersonProfile.Login != User.Identity.Name));
+            return View("GetAllBooks", globalBooks);
 
-            ViewBag.Id = personId;
-            return View("GetAllBooks",allBooks.Where(x=>x.PersonId != personId));
-               
         }
-
         [Authorize]
         public ActionResult GetAllMyBooks()
         {
-            IQueryable<Book> allBooks = _repository.GetAll();
-            return View("GetAllMyBooks",allBooks
-               );
+            IQueryable<GlobalBook> globalBooks =
+                _repository.GetAll().Where(x => x.GlobalBookLikes.Any(z => z.PersonProfile.Login == User.Identity.Name));
+            return View("GetAllMyBooks", globalBooks.ToList());// bardzo wazne zeby tutaj byla lista w innym przypadku pieknie sypie błedami .... ;) 
         }
 
         [Authorize]
         public ViewResult AddBook()
         {
-            return View(new Book());
+            return View(new GlobalBook());
         }
 
         [HttpPost]
         [Authorize]
-        public ActionResult AddBook(Book item, HttpPostedFileBase file)
+        public ActionResult AddBook(GlobalBook item, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +47,13 @@ namespace BetterLife.WebUi.Controllers
                     file.SaveAs(path);
                     item.Created = DateTime.UtcNow;
                     item.DataId = fileName;
-                    _repository.Add(item, User.Identity.Name);
+                    var result = _repository.Add(item, User.Identity.Name);
+                    if (result == null)
+                    { 
+                        ViewBag.Message = "We have this position in Book List";
+                        return View("AddBook");
+                    }
+
                 }
                 catch (Exception)
                 {
@@ -75,7 +62,7 @@ namespace BetterLife.WebUi.Controllers
 
                 }
                 ViewBag.Message = "Upload successful";
-                return RedirectToAction("GetAllMyBooks", new Book());
+                return RedirectToAction("GetAllMyBooks", new GlobalBook());
             }
             return View(item);
 
@@ -83,28 +70,24 @@ namespace BetterLife.WebUi.Controllers
         }
 
         [Authorize]
-        public ActionResult AddToFavorite(int bookId)
+        public ActionResult AddToFavorite(int globalBookId)
         {
-            _favoriteRepository = new FavoriteRepository();
-            bool succes = _favoriteRepository.AddToFavorite(bookId, User.Identity.Name);
-            if (succes)
-            {
-                return RedirectToAction("GetAllBooks");
-            }
-            return RedirectToAction("GetAllBooks");
+
+            bool succes = _repository.AddToFavorite(globalBookId, User.Identity.Name);
+            return RedirectToAction(succes ? "GetAllBooks" : "GetAllMyBooks");//tutaj ewentualnie mozna by na jakas inna strone i wyswietlic bledy ... 
         }
 
         [Authorize]
-        public ActionResult DeleteBook(int bookId)
+        public ActionResult DeleteBook(int globalBookId)
         {
-            bool isdeleted = _repository.Delete(bookId);
+            bool isdeleted = _repository.Delete(globalBookId, User.Identity.Name);
             if (isdeleted)
             {
                 ViewBag.Message = "Delete successful";
                 return RedirectToAction("GetAllMyBooks");
             }
             ViewBag.Message = "Delete failed";
-            return View("GetAllMyBooks");
+            return RedirectToAction("GetAllMyBooks");//tutaj ewentualnie mozna by na jakas inna strone i wyswietlic bledy ... 
         }
 
         public ActionResult ShowBook(string dataId)

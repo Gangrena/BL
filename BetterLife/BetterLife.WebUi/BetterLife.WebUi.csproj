@@ -185,9 +185,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ControllersLogic\BookController\BookRepository.cs" />
-    <Compile Include="ControllersLogic\BookController\FavoriteRepository.cs" />
     <Compile Include="ControllersLogic\BookController\IBookRepository.cs" />
-    <Compile Include="ControllersLogic\BookController\IFavoriteRepository.cs" />
     <Compile Include="ControllersLogic\LocationController\ILocationRepository.cs" />
     <Compile Include="ControllersLogic\LocationController\LocationRepository.cs" />
     <Compile Include="ControllersLogic\PersonController\IPersonRepository.cs" />

@@ -13,6 +13,8 @@ namespace BetterLife.Domain.Abstract
         IRepository<PersonProfile> PersonProfiles { get; }
         IRepository<PersonProfileMessage> PersonProfileMessages { get; }
         IRepository<Photo> Photos { get; }
+        IRepository<GlobalBookLike> GlobalBookLikes { get; }
+        IRepository<GlobalBook> GlobalBooks { get; } 
 
     }
 }
