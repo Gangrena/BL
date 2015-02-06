@@ -35,17 +35,26 @@ namespace BetterLife.Domain.Concrete
         {
             DbContext.SaveChanges();
         }
-        private IRepository<Book> _books;
         private IRepository<Comment> _comments;
         private IRepository<Location> _locations;
         private IRepository<Message> _messages;
-        private IRepository<Movie> _movies;
         private IRepository<PersonProfile> _personProfiles;
         private IRepository<PersonProfileMessage> _personProfileMessages;
         private IRepository<Photo> _photos;
         private IRepository<GlobalBookLike> _globalBookLikes;
         private IRepository<GlobalBook> _globalBooks;
+        private IRepository<GlobalMovieLike> _globalMovieLikes;
+        private IRepository<GlobalMovie> _globalMovies;
 
+        public IRepository<GlobalMovieLike> GlobalMovieLikes
+        {
+            get { return _globalMovieLikes ?? (_globalMovieLikes = new Repository<GlobalMovieLike>(DbContext)); }
+        }
+
+        public IRepository<GlobalMovie> GlobalMovies
+        {
+            get { return _globalMovies ?? (_globalMovies = new Repository<GlobalMovie>(DbContext)); }
+        }
         public IRepository<GlobalBook> GlobalBooks
         {
             get { return _globalBooks ?? (_globalBooks = new Repository<GlobalBook>(DbContext)); }
@@ -55,10 +64,7 @@ namespace BetterLife.Domain.Concrete
         {
             get { return _globalBookLikes ?? (_globalBookLikes = new Repository<GlobalBookLike>(DbContext)); }
         }
-        public IRepository<Book> Books
-        {
-            get { return _books ?? (_books = new Repository<Book>(DbContext)); }
-        }
+
         public IRepository<Comment> Comments
         {
             get
@@ -80,7 +86,6 @@ namespace BetterLife.Domain.Concrete
                 return _messages ?? (_messages = new Repository<Message>(DbContext));
             }
         }
-        public IRepository<Movie> Movies { get { return _movies ?? (_movies = new Repository<Movie>(DbContext)); } }
         public IRepository<PersonProfile> PersonProfiles
         {
             get

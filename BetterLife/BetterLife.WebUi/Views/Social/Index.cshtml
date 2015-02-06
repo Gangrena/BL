@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BetterLife.Domain.Entities.Photo>
+﻿@model List<BetterLife.WebUi.Models.SocialController.SocialPersonViewModel>
 
 <link rel="stylesheet" type="text/css" href="/Content/reset.css">
 <link rel="stylesheet" type="text/css" href="/Content/main.css">
@@ -8,27 +8,33 @@
 <script type="text/javascript" src="/Scripts/jquery.js"></script>
 <script type="text/javascript" src="/Scripts/main.js"></script>
 <script src="/Scripts/jquery.validate.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-<script src="/Scripts/angular.js"></script>
 <script src="/Scripts/bootstrap.js"></script>
 
-@if (Model != null)
+@if (Model.Any())
 {
-    foreach (var photo in Model)
+    foreach (var person in Model)
     {
    
             <div class="work">
-                <a href="inner.html">
-                    <img src="@Url.Action("ShowPhoto","Photo",new {photo.DataId})" class="media" alt="" width="466" height="466" />
+                <a href="@Url.Action("OtherPerson","Person",new {person.PersonProfileId})">
+                    <img src="@Url.Action("ShowPhoto","Photo",new {person.DataId})" class="media" alt="" width="466" height="466" />
                     <div class="caption">
                         <div class="work_title">
-
-
+                            <h1>@person.FirstName @person.LastName</h1>
+     
+                            @if (person.Age != 0)
+                            {
+                                <h3>Age :@person.Age</h3>
+                            }
+                            <h3>Looking for :@person.LookingFor</h3>
+                            <h3>Status :@person.RelationshipStatus</h3>
+                            <img src="@Url.Action("ShowPhoto","Photo",new {person.DataId})" class="media" alt="" width="466" height="466" />
                         </div>
                     </div>
                 </a>
             </div>
-   
+
     }
 }
+
 

@@ -1,0 +1,89 @@
+﻿@model BetterLife.Domain.Entities.PersonProfile
+
+<link rel="stylesheet" type="text/css" href="/Content/reset.css">
+<link rel="stylesheet" type="text/css" href="/Content/main.css">
+<script src="/Scripts/jquery.js"></script>
+<script src="/Scripts/main.js"></script>
+<link rel="stylesheet" href="/Content/bootstrap.min.css" type="text/css" />
+<script src="/Scripts/bootstrap.js"></script>
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
+<script type="text/javascript" src="/Scripts/main.js"></script>
+<script src="/Scripts/jquery.validate.min.js"></script>
+
+
+<script type="text/javascript">
+    $('.dropdown-toggle').dropdown()
+</script>
+
+<section class="top">
+    <div class="wrapper content_header clearfix">
+    </div>
+</section><!-- end top -->
+
+<section class="wrapper">
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active">@Html.ActionLink("Information", "OtherPerson", "Person", new {Model.PersonProfileId}, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation" >@Html.ActionLink("Photo List", "GetAllPersonPhotos", "Photo", new { Model.PersonProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation">@Html.ActionLink("Location List", "GetAllPersonLocations", "Location", new { Model.PersonProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation">@Html.ActionLink("Movie List", "GetAllPersonMovies", "Movie", new { Model.PersonProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation">@Html.ActionLink("Book List", "GetAllPersonBooks", "Book", new { Model.PersonProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>   
+    </ul>
+
+    <div class="content">
+        <div class="form-group text-center">
+            <div class="form-group ">
+                <h3>First Name</h3>
+                <h3>@Model.FirstName</h3>
+            </div>
+            <div class="form-group ">
+                <h3>Last Name</h3>
+                <h3>@Model.LastName</h3>
+            </div>
+     
+            <div class="form-group ">
+                <h3>Birthday</h3>
+                <h3>@Model.Birthday</h3>
+            </div>
+            <div class="form-group ">
+                <h3>Gender</h3>
+                <h3>@Model.Gender</h3>
+            </div>
+            <div class="form-group ">
+                <h3>Looking For</h3>
+                <h3>@Model.LookingFor</h3>
+            </div>
+            <div class="form-group ">
+                <h3>Relationship Status</h3>
+                <h3>@Model.RelationshipStatus</h3>
+            </div>    
+        </div>
+
+        @*<form class="form-inline text-center">
+                <div class="form-group ">
+                    @Html.LabelFor(m => m.FirstName, htmlAttributes: new { @for = "imput1" })
+                   <h3> @Model.FirstName</h3>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName, htmlAttributes: new { @for = "imput2" })
+                    <h3>@Model.LastName</h3>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Birthday, htmlAttributes: new { @for = "imput3" })
+                    <h3>@Model.Birthday</h3>
+                </div>    
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Gender, htmlAttributes: new { @for = "imput3" })
+                    <h3>@Model.Gender</h3>
+                </div>      
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LookingFor, htmlAttributes: new { @for = "imput3" })
+                    <h3>@Model.FirstName</h3>
+                </div>   
+                <div class="form-group">
+                    @Html.LabelFor(m => m.RelationshipStatus, htmlAttributes: new { @for = "imput3" })
+                    <h3>@Model.RelationshipStatus</h3>
+                </div>   
+            </form>*@
+    </div>
+</section>
+

@@ -25,9 +25,9 @@ namespace BetterLife.Domain.Entities
         public int GlobalBookId { get; set; }
         [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
-        [Required(ErrorMessage = "Title is required")]
+        [Required(ErrorMessage = "Author First Name is required")]
         public string AuthorFirstName { get; set; }
-        [Required(ErrorMessage = "Title is required")]
+        [Required(ErrorMessage = "Autor Last Name is required")]
         public string AuthorLastName { get; set; }
         public string DataId { get; set; }
         public DateTime Created { get; set; }

@@ -51,3 +51,7 @@ C:\Users\Bartosz\Desktop\Jezu pomocy\BetterLife\BetterLife.Domain\obj\Debug\Bett
 C:\Users\Bartosz\Desktop\Jezu pomocy\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.dll
 C:\Users\Bartosz\Desktop\Jezu pomocy\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.pdb
 C:\Users\Bartosz\Desktop\Jezu pomocy\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig8glupotaboli.resources
+C:\Users\Bartosz\Desktop\Jezu pomocy\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig12bookdeleted.resources
+C:\Users\Bartosz\Desktop\Jezu pomocy\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig12addGlobalMovieLikes.resources
+C:\Users\Bartosz\Desktop\Jezu pomocy\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig13deletereqforphoto.resources
+C:\Users\Bartosz\Desktop\Jezu pomocy\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig13.resources

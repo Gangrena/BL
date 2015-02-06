@@ -17,6 +17,11 @@ namespace BetterLife.WebUi.Controllers
             IEnumerable<PersonProfile> allPerson = _repository.GetAll();
             return View("Person", allPerson.SingleOrDefault(x => x.Login == User.Identity.Name));
         }
+        public ActionResult OtherPerson(int personProfileId)
+        {
+            IEnumerable<PersonProfile> allPerson = _repository.GetAll();
+            return View("OtherPerson", allPerson.SingleOrDefault(x => x.PersonProfileId == personProfileId));
+        }
         [HttpPost]
         public ActionResult Person(PersonProfile item)
         {
@@ -29,13 +34,5 @@ namespace BetterLife.WebUi.Controllers
             ViewBag.Message = "Update failed";
             return View(item);
         }
-
-
-        public ActionResult GetAllPerson()
-        {
-            return View(_repository.GetAll());//to ma działać jako lista wszystkich w home i nie potrzebne logowanie ... 
-        }
-
-
     }
 }

@@ -27,6 +27,13 @@ namespace BetterLife.WebUi.Controllers
                 _repository.GetAll().Where(x => x.GlobalBookLikes.Any(z => z.PersonProfile.Login == User.Identity.Name));
             return View("GetAllMyBooks", globalBooks.ToList());// bardzo wazne zeby tutaj byla lista w innym przypadku pieknie sypie błedami .... ;) 
         }
+        public ActionResult GetAllPersonBooks(int personProfileId)//tylko do przegladania
+        {
+            ViewBag.personProfileId = personProfileId;
+            IQueryable<GlobalBook> globalBooks =
+                _repository.GetAll().Where(x => x.GlobalBookLikes.Any(z => z.PersonProfile.PersonProfileId == personProfileId));
+            return View("GetAllPersonBooks", globalBooks.ToList());// bardzo wazne zeby tutaj byla lista w innym przypadku pieknie sypie błedami .... ;) 
+        }
 
         [Authorize]
         public ViewResult AddBook()

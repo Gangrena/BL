@@ -49,9 +49,16 @@
                 <li>@Html.ActionLink("Book List/Edit", "GetAllMyBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
                 <li>@Html.ActionLink("Book List/All", "GetAllBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
             </ul>
-<li role="presentation"><a href="#">Favorite Movies</a></li>
-        <li role="presentation"><a href="#">Favorite Books</a></li>
-    </ul>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Favorite Movies <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Movie", "AddMovie", "Movie", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Movie List/Edit", "GetAllMyMovies", "Movie", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Movie List/All", "GetAllMovies", "Movie", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
+</ul>
 
     <div class="content">
         <h1 class="text-center">@ViewBag.Message</h1>
@@ -62,29 +69,29 @@
             @Html.HiddenFor(x => x.PersonProfileId)
             @Html.HiddenFor(x => x.Login)
             @Html.HiddenFor(x => x.Password)
-            <form class="form-inline " style="display: block ;text-align: center;margin-left: auto;margin-right: auto">
-                <div class="form-group " style="display: block ;text-align: center;margin-left: auto;margin-right: auto">
+            <form class="form-inline ">
+                <div class="form-group ">
                     @Html.LabelFor(m => m.FirstName, htmlAttributes: new { @for = "imput1" })
-                    @Html.TextBoxFor(m => m.FirstName, htmlAttributes: new {  placeholder = "Luke", id = "imput1", type = "text" })
+                    @Html.TextBoxFor(m => m.FirstName, htmlAttributes: new { placeholder = "Luke", id = "imput1", type = "text", @class = "form-control" })
                 </div>
-                <div class="form-group" style="display: block ;text-align: center;margin-left: auto;margin-right: auto">
+                <div class="form-group">
                     @Html.LabelFor(m => m.LastName, htmlAttributes: new { @for = "imput2" })
-                    @Html.TextBoxFor(m => m.LastName, htmlAttributes: new {placeholder = "sasa", id = "imput2", type = "text" })
+                    @Html.TextBoxFor(m => m.LastName, htmlAttributes: new {placeholder = "sasa", id = "imput2", type = "text",@class="form-control" })
                 </div>
-                <div class="form-group" style="display: block ;text-align: center;margin-left: auto;margin-right: auto">
+                <div class="form-group">
                     @Html.LabelFor(m => m.Birthday, htmlAttributes: new { @for = "imput3" })
-                    @Html.TextBoxFor(m => m.Birthday, htmlAttributes: new {  placeholder = "lasa", id = "imput3", type = "text" })
+                    @Html.TextBoxFor(m => m.Birthday, htmlAttributes: new { placeholder = "lasa", id = "imput3", type = "text", @class = "form-control" })
                 </div>
-                <div class="form-group " style="display: block ;text-align: center;margin-left: auto;margin-right: auto">
+                <div class="form-group ">
                     @Html.LabelFor(m => m.Gender, htmlAttributes: new { @for = "imput4" })
                     @Html.DropDownListFor(m => m.Gender, new[]
                             {
                                 new SelectListItem{Text="Men",Value ="Male"},
                                 new SelectListItem{Text = "Women",Value="Female"},
                                 new SelectListItem {Text = "Unspecified",Value = "Unspecified"}
-                            }, "Choose option", htmlAttributes: new {  id = "imput4", type = "text" })
+                            }, "Choose option", htmlAttributes: new { id = "imput4", type = "text", @class = "form-control" })
                 </div>
-                <div class="form-group" style="display: block ;text-align: center;margin-left: auto;margin-right: auto">
+                <div class="form-group">
                     @Html.LabelFor(m => m.LookingFor, htmlAttributes: new { @for = "imput5" })
                     @Html.DropDownListFor(m => m.LookingFor, new[]
                             { new SelectListItem { Text = "Dating", Value = "Dating" },
@@ -92,9 +99,9 @@
                                 new SelectListItem{Text = "Random Play",Value = "RandomPlay"},
                                 new SelectListItem{Text="Unspecified",Value="Unspecified"},
                                 new SelectListItem{Text="What Ever I Can Get",Value = "WhatEverICanGet"}
-                            }, "Choose option", htmlAttributes: new {  id = "imput5" })
+                            }, "Choose option", htmlAttributes: new { id = "imput5", @class = "form-control" })
                 </div>
-                <div class="form-group" style="display: block ;text-align: center;margin-left: auto;margin-right: auto">
+                <div class="form-group">
                     @Html.LabelFor(m => m.RelationshipStatus, htmlAttributes: new { @for = "imput6" })
                     @Html.DropDownListFor(m => m.RelationshipStatus, new[]
                             {
@@ -106,7 +113,7 @@
                                 new SelectListItem{Text="Married",Value = "Married"},
                                 new SelectListItem{Text="Unspecified",Value="Unspecified"}
 
-                            }, "Choose option", htmlAttributes: new {  id = "imput6" })
+                            }, "Choose option", htmlAttributes: new { id = "imput6", @class = "form-control" })
                 </div>
                 <button type="submit" class="btn btn-default center-block   ">Update</button>
             </form>

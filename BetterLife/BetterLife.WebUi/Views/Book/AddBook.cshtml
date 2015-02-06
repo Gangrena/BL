@@ -50,7 +50,15 @@
                 <li>@Html.ActionLink("Book List/Edit", "GetAllMyBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
                 <li>@Html.ActionLink("Book List/All", "GetAllBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
             </ul>
-        <li role="presentation"><a href="#">Favorite Movies</a></li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Favorite Movies <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Movie", "AddMovie", "Movie", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Movie List/Edit", "GetAllMyMovies", "Movie", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Movie List/All", "GetAllMovies", "Movie", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
     </ul>
     <div class="content">
         <h1 class="text-center">@ViewBag.Message</h1>

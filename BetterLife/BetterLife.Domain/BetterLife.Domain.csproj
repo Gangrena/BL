@@ -53,13 +53,13 @@
     <Compile Include="Concrete\AggregateRepositories.cs" />
     <Compile Include="Concrete\EfDbContext.cs" />
     <Compile Include="Concrete\Repository.cs" />
-    <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\GlobalBook.cs" />
     <Compile Include="Entities\GlobalBookLike.cs" />
+    <Compile Include="Entities\GlobalMovie.cs" />
+    <Compile Include="Entities\GlobalMovieLike.cs" />
     <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\Message.cs" />
-    <Compile Include="Entities\Movie.cs" />
     <Compile Include="Entities\PersonProfile.cs" />
     <Compile Include="Entities\PersonProfileMessage.cs" />
     <Compile Include="Entities\Photo.cs" />
@@ -113,6 +113,22 @@
     <Compile Include="Migrations\201502022112446_mig 8 glupota boli .Designer.cs">
       <DependentUpon>201502022112446_mig 8 glupota boli .cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502032119593_mig12 book deleted .cs" />
+    <Compile Include="Migrations\201502032119593_mig12 book deleted .Designer.cs">
+      <DependentUpon>201502032119593_mig12 book deleted .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502032133405_mig12 add GlobalMovieLikes.cs" />
+    <Compile Include="Migrations\201502032133405_mig12 add GlobalMovieLikes.Designer.cs">
+      <DependentUpon>201502032133405_mig12 add GlobalMovieLikes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502032209044_mig13 delete req for photo .cs" />
+    <Compile Include="Migrations\201502032209044_mig13 delete req for photo .Designer.cs">
+      <DependentUpon>201502032209044_mig13 delete req for photo .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502052244150_mig13.cs" />
+    <Compile Include="Migrations\201502052244150_mig13.Designer.cs">
+      <DependentUpon>201502052244150_mig13.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -153,6 +169,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502022112446_mig 8 glupota boli .resx">
       <DependentUpon>201502022112446_mig 8 glupota boli .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502032119593_mig12 book deleted .resx">
+      <DependentUpon>201502032119593_mig12 book deleted .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502032133405_mig12 add GlobalMovieLikes.resx">
+      <DependentUpon>201502032133405_mig12 add GlobalMovieLikes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502032209044_mig13 delete req for photo .resx">
+      <DependentUpon>201502032209044_mig13 delete req for photo .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502052244150_mig13.resx">
+      <DependentUpon>201502052244150_mig13.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

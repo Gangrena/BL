@@ -16,6 +16,7 @@ namespace BetterLife.Domain.Entities
         public string ZipCode { get; set; }
         public bool IsHomeTown { get; set; }
         public bool IsCurrentLocation { get; set; }
+        public int PersonProfileId { get; set; }
         public virtual PersonProfile PersonProfile { get; set; }
     }
 }

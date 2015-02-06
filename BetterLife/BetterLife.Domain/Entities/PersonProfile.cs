@@ -10,8 +10,7 @@ namespace BetterLife.Domain.Entities
         public PersonProfile()
         {
             Location = new List<Location>();
-            FavoriteBooks = new List<Book>();
-            FavoriteMovies = new List<Movie>();
+            GlobalMovieLikes = new HashSet<GlobalMovieLike>();
             Photos = new List<Photo>();
             PersonProfileMessages = new List<PersonProfileMessage>();
             GlobalBookLikes = new HashSet<GlobalBookLike>();
@@ -34,10 +33,9 @@ namespace BetterLife.Domain.Entities
         public Status Status { get; set; }
         //one to many relations
         public ICollection<Location> Location { get; set; }
-        public ICollection<Book> FavoriteBooks { get; set; }
-        public ICollection<Movie> FavoriteMovies { get; set; }
         public ICollection<Photo> Photos { get; set; }
-        public ICollection<GlobalBookLike> GlobalBookLikes { get; set; } 
+        public ICollection<GlobalBookLike> GlobalBookLikes { get; set; }
+        public ICollection<GlobalMovieLike> GlobalMovieLikes { get; set; } 
         public ICollection<PersonProfileMessage> PersonProfileMessages { get; set; } 
 
     }

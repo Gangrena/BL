@@ -19,6 +19,17 @@ namespace BetterLife.WebUi.Controllers
                     x.IsHomeTown
                 }));
         }
+        public ActionResult GetAllPersonLocations(int personProfileId)
+        {
+            ViewBag.personProfileId = personProfileId;
+            IQueryable<Location> allLocations = _repository.GetAll();
+            return View("GetAllPersonLocations", allLocations.Where(x => x.PersonProfile.PersonProfileId == personProfileId).OrderByDescending(
+                x => new
+                {
+                    x.IsCurrentLocation,
+                    x.IsHomeTown
+                }));
+        }
 
         [Authorize]
         public ActionResult UpdateLocation(int locationId)

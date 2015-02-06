@@ -15,6 +15,7 @@ namespace BetterLife.Domain.Entities
         public DateTime Created { get; set; }
         public string DataId { get; set; }
         public bool IsProfile { get; set; }
+        public int PersonProfileId { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual PersonProfile PersonProfile { get; set; }//tutaj moga być problemy
 

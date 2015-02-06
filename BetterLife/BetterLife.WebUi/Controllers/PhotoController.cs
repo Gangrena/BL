@@ -19,6 +19,13 @@ namespace BetterLife.WebUi.Controllers
             IQueryable<Photo> allPhotos = _repository.GetAll().OrderByDescending(x => x.Created);
             return View("GetAllPhotos", allPhotos.Where(x => x.PersonProfile.Login == User.Identity.Name));
         }
+        public ActionResult GetAllPersonPhotos(int personProfileId)
+        {
+            ViewBag.personProfileId = personProfileId;
+            //i juz nie problem gdy uzywam iqueryable to dziala ale nie mozna edytować photo natomiast przy ienumerable nie mam dostepu do personprofile.login ... czyli musze miec id... 
+            IQueryable<Photo> allPhotos = _repository.GetAll().OrderByDescending(x => x.Created);
+            return View("GetAllPersonPhotos", allPhotos.Where(x => x.PersonProfile.PersonProfileId == personProfileId));
+        }
         [Authorize]
         public ActionResult UpdatePhoto(int photoId)
         {

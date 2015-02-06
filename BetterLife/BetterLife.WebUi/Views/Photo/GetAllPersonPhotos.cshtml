@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BetterLife.Domain.Entities.Photo>
+@using System.Web.Http.OData.Builder
+@using BetterLife.WebUi.HtmlHelperMethods;
+@using WebGrease.Css.Extensions
+
+<link rel="stylesheet" type="text/css" href="/Content/reset.css">
+<link rel="stylesheet" type="text/css" href="/Content/main.css">
+<script src="/Scripts/jquery.js"></script>
+<script src="/Scripts/main.js"></script>
+<link rel="stylesheet" href="/Content/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
+<script type="text/javascript" src="/Scripts/main.js"></script>
+<script src="/Scripts/jquery.validate.min.js"></script>
+<script src="/Scripts/bootstrap.js"></script>
+
+<script type="text/javascript">
+    $('.dropdown-toggle').dropdown()
+</script>
+
+
+<section class="top">
+    <div class="wrapper content_header clearfix">
+
+    </div>
+</section><!-- end top -->
+
+<section class="wrapper">
+    <ul class="nav nav-pills">
+        <li role="presentation" >@Html.ActionLink("Information", "OtherPerson", "Person", new { @ViewBag.personProfileId}, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation" class="active">@Html.ActionLink("Photo List", "GetAllPersonPhotos", "Photo", new { @ViewBag.personProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation">@Html.ActionLink("Location List", "GetAllPersonLocations", "Location", new { @ViewBag.personProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation">@Html.ActionLink("Movie List", "GetAllPersonMovies", "Movie", new { @ViewBag.personProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation">@Html.ActionLink("Book List", "GetAllPersonBooks", "Book", new { @ViewBag.personProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>   
+    </ul>
+</section>
+
+@if (Model.Any())
+{
+    foreach (var photo in Model)
+    {
+        <div class="work">
+            <img src="@Url.Action("ShowPhoto","Photo",new {photo.DataId})" class="media" alt="" width="466" height="466" />
+            <div class="caption">
+                <div class="work_title">
+                    @if (photo.IsProfile)
+                    {
+                        <h2 class="text-center">Profile Photo</h2>
+                    }
+                    <h1>Added :@photo.Created.ToShortDateString()</h1>
+                    <img src="@Url.Action("ShowPhoto","Photo",new {photo.DataId})" class="media" alt="" width="466" height="466" />
+                </div>
+            </div>
+        </div>
+    }
+}

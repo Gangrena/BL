@@ -188,12 +188,17 @@
     <Compile Include="ControllersLogic\BookController\IBookRepository.cs" />
     <Compile Include="ControllersLogic\LocationController\ILocationRepository.cs" />
     <Compile Include="ControllersLogic\LocationController\LocationRepository.cs" />
+    <Compile Include="ControllersLogic\MovieController\IMovieRepository.cs" />
+    <Compile Include="ControllersLogic\MovieController\MovieRepository.cs" />
     <Compile Include="ControllersLogic\PersonController\IPersonRepository.cs" />
     <Compile Include="ControllersLogic\PersonController\PersonRepository.cs" />
+    <Compile Include="ControllersLogic\SocialController\ISocialRepository.cs" />
+    <Compile Include="ControllersLogic\SocialController\SocialRepository.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Controllers\SocialController.cs" />
@@ -210,8 +215,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\FirstLogin.cs" />
     <Compile Include="Models\GetPersonId.cs" />
-    <Compile Include="Models\ViewPersonProfile\ImageViewModel.cs" />
-    <Compile Include="Models\ViewPersonProfile\UserSimpleData.cs" />
+    <Compile Include="Models\SocialController\SocialPersonViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ControllersLogic\PhotoController\IPhotoRepository.cs" />
     <Compile Include="ControllersLogic\PhotoController\PhotoRepository.cs" />
@@ -411,6 +415,14 @@
     <Content Include="Views\Book\GetAllBooks.cshtml" />
     <Content Include="Views\Book\AddBook.cshtml" />
     <Content Include="Views\Book\GetAllMyBooks.cshtml" />
+    <Content Include="Views\Movie\GetAllMovies.cshtml" />
+    <Content Include="Views\Movie\GetAllMyMovies.cshtml" />
+    <Content Include="Views\Movie\AddMovie.cshtml" />
+    <Content Include="Views\Book\GetAllPersonBooks.cshtml" />
+    <Content Include="Views\Location\GetAllPersonLocations.cshtml" />
+    <Content Include="Views\Movie\GetAllPersonMovies.cshtml" />
+    <Content Include="Views\Photo\GetAllPersonPhotos.cshtml" />
+    <Content Include="Views\Person\OtherPerson.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\ImagesBase\BookBase\" />
