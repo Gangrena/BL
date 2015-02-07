@@ -32,7 +32,7 @@ namespace BetterLife.WebUi.Controllers
             ViewBag.personProfileId = personProfileId;
             IQueryable<GlobalMovie> globalMovies =
                 _repository.GetAll()
-                    .Where(x => x.GlobalMovieLikes.Any(z => z.PersonProfile.PersonProfileId == personProfileId));
+                    .Where(x => x.GlobalMovieLikes.All(z => z.PersonProfile.PersonProfileId == personProfileId));
             return View("GetAllPersonMovies", globalMovies.ToList());// bardzo wazne zeby tutaj byla lista w innym przypadku pieknie sypie błedami .... ;) 
         }
 

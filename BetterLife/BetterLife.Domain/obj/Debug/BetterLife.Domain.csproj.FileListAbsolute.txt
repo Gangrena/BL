@@ -55,3 +55,32 @@ C:\Users\Bartosz\Desktop\Jezu pomocy\BetterLife\BetterLife.Domain\obj\Debug\Bett
 C:\Users\Bartosz\Desktop\Jezu pomocy\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig12addGlobalMovieLikes.resources
 C:\Users\Bartosz\Desktop\Jezu pomocy\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig13deletereqforphoto.resources
 C:\Users\Bartosz\Desktop\Jezu pomocy\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig13.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\bin\Debug\BetterLife.Domain.dll.config
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\bin\Debug\BetterLife.Domain.dll
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\bin\Debug\BetterLife.Domain.pdb
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\bin\Debug\EntityFramework.dll
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\bin\Debug\EntityFramework.xml
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig1.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig2.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig3.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig5.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig51.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig6.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig61.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig7.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig8.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig81.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig8glupotaboli.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig12bookdeleted.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig12addGlobalMovieLikes.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig13deletereqforphoto.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.mig13.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.csproj.GenerateResource.Cache
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.dll
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.pdb
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.lastfight.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.round1.resources
+C:\Users\Bartosz\Desktop\BL\BetterLife\BetterLife.Domain\obj\Debug\BetterLife.Domain.Migrations.round2.resources

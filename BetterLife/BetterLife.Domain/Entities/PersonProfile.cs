@@ -35,7 +35,7 @@ namespace BetterLife.Domain.Entities
         public ICollection<Location> Location { get; set; }
         public ICollection<Photo> Photos { get; set; }
         public ICollection<GlobalBookLike> GlobalBookLikes { get; set; }
-        public ICollection<GlobalMovieLike> GlobalMovieLikes { get; set; } 
+        public ICollection<GlobalMovieLike> GlobalMovieLikes { get; set; }
         public ICollection<PersonProfileMessage> PersonProfileMessages { get; set; } 
 
     }

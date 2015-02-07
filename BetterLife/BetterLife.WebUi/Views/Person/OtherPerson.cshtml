@@ -27,6 +27,11 @@
         <li role="presentation">@Html.ActionLink("Location List", "GetAllPersonLocations", "Location", new { Model.PersonProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
         <li role="presentation">@Html.ActionLink("Movie List", "GetAllPersonMovies", "Movie", new { Model.PersonProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
         <li role="presentation">@Html.ActionLink("Book List", "GetAllPersonBooks", "Book", new { Model.PersonProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>   
+        @if (User.Identity.Name != "")
+        {
+            <li role="presentation">@Html.ActionLink("Send Message", "SendMessage", "Message", new { Model.PersonProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>   
+        }
+        
     </ul>
 
     <div class="content">

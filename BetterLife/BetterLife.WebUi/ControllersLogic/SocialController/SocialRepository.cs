@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using BetterLife.Domain.Abstract;
 using BetterLife.Domain.Concrete;
 using BetterLife.WebUi.Models.SocialController;
@@ -31,7 +33,7 @@ namespace BetterLife.WebUi.ControllersLogic.SocialController
         public List<SocialPersonViewModel> GetAll()
         {
             var socialPersonViewModels = new List<SocialPersonViewModel>();
-            _repositories.PersonProfiles.GetAll().ForEach(x => socialPersonViewModels.Add(new SocialPersonViewModel
+            _repositories.PersonProfiles.GetAll().OrderByDescending(x=>x.PersonProfileId).ForEach(x => socialPersonViewModels.Add(new SocialPersonViewModel
             {
 // ReSharper disable once PossibleInvalidOperationException
                 Age = DateTime.Today.Year - x.Birthday.Value.Year,
@@ -45,5 +47,25 @@ namespace BetterLife.WebUi.ControllersLogic.SocialController
             }));
             return socialPersonViewModels;
         }
+
+        public List<SocialPersonViewModel> GetAllByName(string search)
+        {
+            var socialPersonViewModels = new List<SocialPersonViewModel>();
+            _repositories.PersonProfiles.GetAll().Where(s=>s.FirstName.Contains(search) || s.LastName.Contains(search)).ForEach(x => socialPersonViewModels.Add(new SocialPersonViewModel
+            {
+                // ReSharper disable once PossibleInvalidOperationException
+                Age = DateTime.Today.Year - x.Birthday.Value.Year,
+                FirstName = x.FirstName,
+                LastName = x.LastName,
+                LookingFor = x.LookingFor,
+                PersonProfileId = x.PersonProfileId,
+                Gender = x.Gender,
+                RelationshipStatus = x.RelationshipStatus,
+                DataId = GetDataIdForPerson(x.PersonProfileId)
+            }));
+            return socialPersonViewModels;
+        }
+
+      
     }
 }

@@ -129,6 +129,18 @@
     <Compile Include="Migrations\201502052244150_mig13.Designer.cs">
       <DependentUpon>201502052244150_mig13.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502062317115_last fight.cs" />
+    <Compile Include="Migrations\201502062317115_last fight.Designer.cs">
+      <DependentUpon>201502062317115_last fight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502062324470_round 1.cs" />
+    <Compile Include="Migrations\201502062324470_round 1.Designer.cs">
+      <DependentUpon>201502062324470_round 1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502062330456_round 2.cs" />
+    <Compile Include="Migrations\201502062330456_round 2.Designer.cs">
+      <DependentUpon>201502062330456_round 2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -181,6 +193,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502052244150_mig13.resx">
       <DependentUpon>201502052244150_mig13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502062317115_last fight.resx">
+      <DependentUpon>201502062317115_last fight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502062324470_round 1.resx">
+      <DependentUpon>201502062324470_round 1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502062330456_round 2.resx">
+      <DependentUpon>201502062330456_round 2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

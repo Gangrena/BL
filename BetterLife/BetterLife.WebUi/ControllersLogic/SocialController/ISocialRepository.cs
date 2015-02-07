@@ -8,5 +8,6 @@ namespace BetterLife.WebUi.ControllersLogic.SocialController
     {
         List<SocialPersonViewModel> GetAll();
         string GetDataIdForPerson(int personId);
+        List<SocialPersonViewModel> GetAllByName(string search);
     }
 }

@@ -1,0 +1,58 @@
+﻿@model BetterLife.Domain.Entities.Message
+@using System.Configuration
+@using System.Web.Http.OData.Builder
+@using BetterLife.WebUi.HtmlHelperMethods;
+@using WebGrease.Css.Extensions
+
+<link rel="stylesheet" type="text/css" href="/Content/reset.css">
+<link rel="stylesheet" type="text/css" href="/Content/main.css">
+<script src="/Scripts/jquery.js"></script>
+<script src="/Scripts/main.js"></script>
+<link rel="stylesheet" href="/Content/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
+<script type="text/javascript" src="/Scripts/main.js"></script>
+<script src="/Scripts/jquery.validate.min.js"></script>
+<script src="/Scripts/bootstrap.js"></script>
+
+<script type="text/javascript">
+    $('.dropdown-toggle').dropdown()
+</script>
+
+
+<section class="top">
+    <div class="wrapper content_header clearfix">
+
+    </div>
+</section><!-- end top -->
+
+<section class="wrapper">
+    <ul class="nav nav-pills">
+        <li role="presentation">@Html.ActionLink("Information", "OtherPerson", "Person", new { @ViewBag.personProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation">@Html.ActionLink("Photo List", "GetAllPersonPhotos", "Photo", new { @ViewBag.personProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation">@Html.ActionLink("Location List", "GetAllPersonLocations", "Location", new { @ViewBag.personProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation">@Html.ActionLink("Movie List", "GetAllPersonMovies", "Movie", new { @ViewBag.personProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation">@Html.ActionLink("Book List", "GetAllPersonBooks", "Book", new { @ViewBag.personProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        @if (User.Identity.Name != "")
+        {
+            <li role="presentation" class="active">@Html.ActionLink("Send Message", "SendMessage", "Message", new { @ViewBag.PersonProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        }
+    </ul>     
+    <div class="content">
+        <h1 class="text-center">@ViewBag.Message</h1>
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(x=>x.SecPersonProfileId)
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <form class="form-horizontal">
+
+                <div class="form-group" >
+                    @Html.LabelFor(m => m.Description, htmlAttributes: new { @for = "imput1" })
+                    @Html.TextAreaFor(m => m.Description, htmlAttributes: new { @class = "form-control", placeholder = "Luke", id = "imput1", type = "text", style = "width: 400px; height: 200px;"})
+                </div>             
+                <button type="submit" class="btn btn-default">Send</button>
+            </form>
+        }
+    </div>
+</section>
+

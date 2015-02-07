@@ -1,0 +1,82 @@
+﻿@model IEnumerable<BetterLife.WebUi.Models.SocialController.SocialPersonViewModel>
+@using System.Web.Http.OData.Builder
+@using BetterLife.WebUi.HtmlHelperMethods;
+@using WebGrease.Css.Extensions
+
+<link rel="stylesheet" type="text/css" href="/Content/reset.css">
+<link rel="stylesheet" type="text/css" href="/Content/main.css">
+<script src="/Scripts/jquery.js"></script>
+<script src="/Scripts/main.js"></script>
+<link rel="stylesheet" href="/Content/bootstrap.min.css" type="text/css" />
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
+<script type="text/javascript" src="/Scripts/main.js"></script>
+<script src="/Scripts/jquery.validate.min.js"></script>
+<script src="/Scripts/bootstrap.js"></script>
+
+<script type="text/javascript">
+    $('.dropdown-toggle').dropdown()
+</script>
+
+
+<section class="top">
+    <div class="wrapper content_header clearfix">
+
+    </div>
+</section><!-- end top -->
+
+<section class="wrapper">
+    <ul class="nav nav-pills">
+        <li role="presentation">@Html.ActionLink("Information", "Person", "Person", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        <li role="presentation" class="dropdown active">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Photo <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Photo", "AddPhoto", "Photo", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li class="active">@Html.ActionLink("Photo List/Edit", "GetAllPhotos", "Photo", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Location <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Location", "AddLocation", "Location", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Location List/Edit", "GetAllLocations", "Location", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Favorite Books <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Book", "AddBook", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Book List/Edit", "GetAllMyBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Book List/All", "GetAllBooks", "Book", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                Favorite Movies <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Insert New Movie", "AddMovie", "Movie", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Movie List/Edit", "GetAllMyMovies", "Movie", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+                <li>@Html.ActionLink("Movie List/All", "GetAllMovies", "Movie", routeValues: null, htmlAttributes: new { @class = "username", title = "Location" })</li>
+            </ul>
+
+    </ul>
+</section>
+
+@if (Model.Any())
+{
+    foreach (var photo in Model)
+    {
+        <div class="work">
+            <img src="@Url.Action("ShowPhoto","Photo",new {photo.DataId})" class="media" alt="" width="466" height="466" />
+            <div class="caption">
+                <div class="work_title">
+                    @Html.ActionLink("Send Message", "SendMessage", "Message", new { photo.PersonProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })     
+                    <img src="@Url.Action("ShowPhoto","Photo",new {photo.DataId})" class="media" alt="" width="466" height="466" />
+                </div>
+            </div>
+        </div>
+    }
+}

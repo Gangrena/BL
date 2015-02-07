@@ -81,6 +81,14 @@ header nav ul li a{
     -moz-transition:all .1s linear;
     -o-transition:all .1s linear;
 }
+header ul.social li a,
+.main .work a .caption,
+header nav ul li {
+    transition:all .1s linear;
+    -webkit-transition:all .1s linear;
+    -moz-transition:all .1s linear;
+    -o-transition:all .1s linear;
+}
 
 h1, h2, h3, h4, h5 ,h6{
     color: #4b4848;
@@ -142,7 +150,7 @@ h5, h6          { font-weight: bolder }
         list-style: none;
     }
 
-    header nav ul li{
+    header nav ul li {
         display: block;
         margin-bottom: 30px;
     }
@@ -154,6 +162,7 @@ h5, h6          { font-weight: bolder }
         text-decoration: none;
         letter-spacing: 1px;
     }
+    /*test*/
 
     header nav ul li a:hover,
     header nav ul li a.selected{

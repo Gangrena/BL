@@ -20,6 +20,7 @@
         <div class="logo">
             <a href=@Url.Action("Index","Social")><strong>Better Life</strong></a>
         </div>
+
             <div id="menu_icon"></div>
             <nav>
                 <ul>
@@ -28,7 +29,7 @@
                     {
                         
                         <li>@Html.ActionLink(User.Identity.Name, "Person", "Person",routeValues:null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
-                         <li><a href="#">Wiadomości</a></li>
+                         <li>@Html.ActionLink("Messages", "AllNews", "Message", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
                     <li>
                         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                         {
@@ -42,7 +43,15 @@
                         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
                     }
-                   
+                    <li>
+                        <a style=" text-decoration: none;">
+                            @using (Html.BeginForm("Search", "Social"))
+                            {
+                                @Html.TextBox("search", "", new { style = "width:100px"})
+                                <input type="submit" value="Search"  />
+                            }
+                        </a>      
+                    </li>
                 </ul>
             </nav><!-- end navigation menu -->
  
@@ -55,14 +64,14 @@
             </ul><!-- end social -->
 
             <div class="rights">
-                <p>WebSite by B.C Gangrena</p>
+                <p></p>
             </div><!-- end rights -->
         </div><!-- end footer -->
     </header>
   
-        <section class="main clearfix">
-            @RenderBody()
-        </section>
+    <section class="main clearfix">
+        @RenderBody()
+    </section>
 
 </body>
 </html>

@@ -31,6 +31,10 @@
         <li role="presentation">@Html.ActionLink("Location List", "GetAllPersonLocations", "Location", new { @ViewBag.personProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
         <li role="presentation">@Html.ActionLink("Movie List", "GetAllPersonMovies", "Movie", new { @ViewBag.personProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
         <li role="presentation">@Html.ActionLink("Book List", "GetAllPersonBooks", "Book", new { @ViewBag.personProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>   
+        @if (User.Identity.Name != "")
+        {
+            <li role="presentation">@Html.ActionLink("Send Message", "SendMessage", "Message", new { @ViewBag.PersonProfileId }, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+        }
     </ul>
 </section>
 

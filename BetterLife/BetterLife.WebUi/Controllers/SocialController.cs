@@ -19,5 +19,10 @@ namespace BetterLife.WebUi.Controllers
 
             return View(_repository.GetAll());
         }
+          public ActionResult Search(string search)
+          {
+
+              return View("Index", _repository.GetAllByName(search));
+          }
     }
 }

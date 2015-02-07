@@ -188,6 +188,8 @@
     <Compile Include="ControllersLogic\BookController\IBookRepository.cs" />
     <Compile Include="ControllersLogic\LocationController\ILocationRepository.cs" />
     <Compile Include="ControllersLogic\LocationController\LocationRepository.cs" />
+    <Compile Include="ControllersLogic\MessageController\IMessageRepository.cs" />
+    <Compile Include="ControllersLogic\MessageController\MessageRepository.cs" />
     <Compile Include="ControllersLogic\MovieController\IMovieRepository.cs" />
     <Compile Include="ControllersLogic\MovieController\MovieRepository.cs" />
     <Compile Include="ControllersLogic\PersonController\IPersonRepository.cs" />
@@ -198,6 +200,7 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\PhotoController.cs" />
@@ -295,6 +298,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Images\bl.png" />
     <Content Include="Images\hero_image.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\men_icons.png" />
@@ -423,6 +427,8 @@
     <Content Include="Views\Movie\GetAllPersonMovies.cshtml" />
     <Content Include="Views\Photo\GetAllPersonPhotos.cshtml" />
     <Content Include="Views\Person\OtherPerson.cshtml" />
+    <Content Include="Views\Message\SendMessage.cshtml" />
+    <Content Include="Views\Message\AllNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\ImagesBase\BookBase\" />

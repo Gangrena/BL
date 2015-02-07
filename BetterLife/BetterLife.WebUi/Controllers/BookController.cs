@@ -31,7 +31,7 @@ namespace BetterLife.WebUi.Controllers
         {
             ViewBag.personProfileId = personProfileId;
             IQueryable<GlobalBook> globalBooks =
-                _repository.GetAll().Where(x => x.GlobalBookLikes.Any(z => z.PersonProfile.PersonProfileId == personProfileId));
+                _repository.GetAll().Where(x => x.GlobalBookLikes.All(z => z.PersonProfile.PersonProfileId == personProfileId));
             return View("GetAllPersonBooks", globalBooks.ToList());// bardzo wazne zeby tutaj byla lista w innym przypadku pieknie sypie błedami .... ;) 
         }
 
